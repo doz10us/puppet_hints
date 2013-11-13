@@ -1,1 +1,7 @@
 exception opject expected \invalid resource type - косяк в синтаксисе манифеста
+----
+undefined method 'my function' for Scope(Class[Mahclass]):Puppet:Parser:Scope at blabla
+братюнь, вызываешь корявую функцию
+возможно, вызываешь функцию изнутри другой функции - тогда надо сделать 
+Puppet::Parser::Functions.autoloader.loadall - в начале функцции
+function_best_foo_ever([swagarg1, swagarg2,...]) - вызов
