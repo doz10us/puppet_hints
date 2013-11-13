@@ -1,0 +1,1 @@
+exception opject expected \invalid resource type - косяк в синтаксисе манифеста
