@@ -5,3 +5,12 @@ undefined method 'my function' for Scope(Class[Mahclass]):Puppet:Parser:Scope at
 возможно, вызываешь функцию изнутри другой функции - тогда надо сделать 
 Puppet::Parser::Functions.autoloader.loadall - в начале функцции
 function_best_foo_ever([swagarg1, swagarg2,...]) - вызов
+----
+ Failed to submit 'replace facts' command for debian.debian to PuppetDB at puppetmaster.opensoftdev.ru:8081: 
+ SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed: 
+ [certificate signature failure for /CN=puppetmaster.opensoftdev.ru]
+
+ ----
+ Failed to submit 'replace facts' command for debian.debian to PuppetDB at puppetmaster.opensoftdev.ru:8081: connection refused(2)
+ глянь  в pg_hba.conf у puppetdb должны быть права
+ 

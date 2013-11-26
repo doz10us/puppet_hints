@@ -1,0 +1,4 @@
+ Could not parse for environment production: 
+ No file(s) found for import of '/etc/puppet/modules/modulename/spec/fixtures/manifests/site.pp' at line 3 on node puppetmaster.debian
+------------
+в /etc/puppet/modules/modulename/spec/fixtures/manifests/ должен лежать пустой site.pp
