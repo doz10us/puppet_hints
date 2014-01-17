@@ -1,0 +1,23 @@
+по умолчанию коннектит через ipv6. поэтому в бд залезть не могло
+приконнектить по ipv4 можно с опциями --dbport --dbhost
+пасс прописывается в /etc/bucardorc
+
+apt-get install postgresql bucardo postgreaql-plperl-9.1
+mkdir /var/run/bucardo
+su postgres -c psql
+	alter user postgres with password 'pass';
+/etc/postgresql/9.1/main/pg_hba.conf
+	add 
+	 local   all             bucardo                                 md5
+	 host    all             bucardo         127.0.0.1/32            md5
+
+/etc/postgresql/9.1/main/postgresql.conf
+	listen_adress = '*'
+
+/etc/bucardorc
+	dbhost = 127.0.0.1
+	dbpass = our pass
+bucardo install
+
+
+sometimes /var/run/bucardo disappears
