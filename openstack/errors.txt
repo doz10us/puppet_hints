@@ -1,0 +1,27 @@
+КЛЮЧ --debug - царский
+
+keystone:
+  1)при любой команде кейстоуну 
+    Authorization Failed: Not Found (HTTP 404)
+        проверить адрес, туда ли сервис сутчится, на тот ли адрес эндпоинта
+  2)
+glance:
+2014-01-21 02:05:10.123 15200 WARNING glance.store.base [-] Failed to configure store correctly: Store sheepdog could not be configured correctly. Reason: Error in store configuration: Unexpected error while running command.
+Command: collie
+Exit code: 127
+Stdout: ''
+Stderr: '/bin/sh: 1: collie: not found\n' Disabling add method.
+-----------
+забыл сделать glance-manage db_sync
+
+
+nova:
+connection refused [111]
+закрыт 8774 порт, возможно не работает nova-api
+!!! помотри есть ли в enabled_apis osapi_compute 
+
+neutron:
+
+ ERROR neutron.common.legacy [-] Skipping unknown group key: firewall_driver
+
+баг логирования. забей
