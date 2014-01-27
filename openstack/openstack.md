@@ -31,7 +31,7 @@ GRANT ALL ON glance.* TO 'glanceUser'@'%' IDENTIFIED BY 'glancePass';
 
 #Neutron
 CREATE DATABASE neutron;
-GRANT ALL ON quantum.* TO 'neutronUser'@'%' IDENTIFIED BY 'neutronPass';
+GRANT ALL ON neutron.* TO 'neutronUser'@'%' IDENTIFIED BY 'neutronPass';
 
 #Nova
 CREATE DATABASE nova;
@@ -71,9 +71,10 @@ keystone-manage db_sync
 
 **create tenants, users and endpoints**
 we can do it manually, or use scripts:
+```
 wget https://raw.github.com/mseknibilel/OpenStack-Grizzly-Install-Guide/OVS_MultiNode/KeystoneScripts/keystone_basic.sh
 wget https://raw.github.com/mseknibilel/OpenStack-Grizzly-Install-Guide/OVS_MultiNode/KeystoneScripts/keystone_endpoints_basic.sh
-
+```
 just change admin token, IP's, names and passes there and it's ok
 don't forget to change quantum to neutron
 or just do the same commands manually
@@ -275,7 +276,7 @@ service iscsitarget start
 service open-iscsi start
 ```
 
-**/etc/cinder/api-paste.ini **
+**/etc/cinder/api-paste.ini**
 ```
 [filter:authtoken]
 paste.filter_factory = keystoneclient.middleware.auth_token:filter_factory
@@ -299,6 +300,11 @@ volume_group = cinder-volumes
 verbose = True
 auth_strategy = keystone
 iscsi_ip_address=[internal_cinder_host]
+```
+**make volume group**
+```
+pvcreate /dev/[partition]
+vgcreate cinder-volumes /dev/[partition]
 ```
 **Create a 1 GB test volume.**
 ```
@@ -375,7 +381,7 @@ Additionally, you must set the newly created br-ex interface to have the IP addr
 ```
 allow-hotplug eth0
 iface eth0 inet manual
-        ip ifconfig $IFACE 0.0.0.0
+        up ifconfig $IFACE 0.0.0.0
         up ip link set $IFACE promisc on
         down ip link set $IFACE promisc off
         down ifconfig $IFACE down
