@@ -17,8 +17,12 @@ Stderr: '/bin/sh: 1: collie: not found\n' Disabling add method.
 
 nova:
 connection refused [111]
-закрыт 8774 порт, возможно не работает nova-api
-!!! помотри есть ли в enabled_apis osapi_compute 
+    закрыт 8774 порт, возможно не работает nova-api
+    !!! помотри есть ли в enabled_apis osapi_compute 
+"Unavailable console type" 
+    перебилдить виртуалку
+
+
 
 neutron:
 

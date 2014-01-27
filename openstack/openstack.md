@@ -76,7 +76,7 @@ wget https://raw.github.com/mseknibilel/OpenStack-Grizzly-Install-Guide/OVS_Mult
 wget https://raw.github.com/mseknibilel/OpenStack-Grizzly-Install-Guide/OVS_MultiNode/KeystoneScripts/keystone_endpoints_basic.sh
 ```
 just change admin token, IP's, names and passes there and it's ok
-don't forget to change quantum to neutron
+don't forget to change neutron to neutron
 or just do the same commands manually
 
 
@@ -424,4 +424,19 @@ for i in $(ls /etc/init.d/neutron*); do $i restart; done;
 **install**
 ```
 apt-get install memcached libapache2-mod-wsgi openstack-dashboard
+```
+
+#Network
+```
+put_id_of_project_one="ed0334c1cbb04ed49cc3c5e649e15ec8"
+neutron net-create --tenant-id $put_id_of_project_one net_proj_one
+neutron subnet-create --tenant-id $put_id_of_project_one net_proj_one 50.50.1.0/24 --dns_nameservers list=true 8.8.8.7 8.8.8.8
+neutron router-create --tenant-id $put_id_of_project_one router_proj_one
+neutron agent-list 
+neutron l3-agent-router-add $l3_agent_ID router_proj_one
+neutron router-interface-add $put_router_proj_one_id_here $put_subnet_id_here
+cd /etc/init.d/; for i in $( ls neutron-* ); do sudo service $i restart; done
+neutron net-create --tenant-id $put_id_of_admin_tenant ext_net --router:external=True
+neutron subnet-create --tenant-id $put_id_of_admin_tenant --allocation-pool start=192.168.100.102,end=192.168.100.126 --gateway 192.168.100.1 ext_net 192.168.100.100/24 --enable_dhcp=False
+neutron router-gateway-set $put_router_proj_one_id_here $put_id_of_ext_net_here
 ```
