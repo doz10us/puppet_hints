@@ -26,6 +26,9 @@ connection refused [111]
 
 neutron:
 
- ERROR neutron.common.legacy [-] Skipping unknown group key: firewall_driver
-
-баг логирования. забей
+    ERROR neutron.common.legacy [-] Skipping unknown group key: firewall_driver
+        баг логирования. забей
+    AttributeError: 'NoneType' object has no attribute 'refresh_firewall' 
+        рестарт всего(как минимум rabbitmq)
+        
+        sudo neutron-rootwrap /etc/neutron/rootwrap.conf ip netns exec qrouter-925e6c8b-d26b-47e2-98b5-0cab7f5a559a ip -o -d link list

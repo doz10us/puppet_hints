@@ -1,0 +1,12 @@
+не логинится
+    прогнать cloudstack-setup-management
+    посмотреть /var/log/cloudstack/management/setupManagement.log
+Unable to start agent: Failed to get private nic name
+    должно быть ДВА бриджа
+    
+(XEN)
+can not create vdi in sr
+    vhd-utils
+    1)должно быть chmod +x
+    2)должно лежать на контроллере в 
+    
