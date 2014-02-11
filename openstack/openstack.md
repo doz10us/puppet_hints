@@ -265,7 +265,10 @@ agent_enabled=false
 nova-manage db sync
 cd /etc/init.d/; for i in $( ls nova-* ); do sudo service $i restart; done
 ```
-
+***check***
+```
+nova image-list
+```
 #Cinder
 **install controller+node**
 ```
@@ -328,6 +331,10 @@ auth_strategy = keystone
 
 [database]
 connection = mysql://neutronUser:neutronPass@[mysql_host]/neutron
+```
+comment if error
+```
+#service_plugins = neutron.services.l3_router.l3_router_plugin.L3RouterPlugin
 ```
 ** /etc/neutron/api-paste.ini**
 ```

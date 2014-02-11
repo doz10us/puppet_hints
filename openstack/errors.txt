@@ -32,3 +32,5 @@ neutron:
         рестарт всего(как минимум rabbitmq)
         
         sudo neutron-rootwrap /etc/neutron/rootwrap.conf ip netns exec qrouter-925e6c8b-d26b-47e2-98b5-0cab7f5a559a ip -o -d link list
+    ValueError: (u'Multiple plugins for service %s were configured', 'L3_ROUTER_NAT')
+        закомментировать #service_plugins = neutron.services.l3_router.l3_router_plugin.L3RouterPlugin

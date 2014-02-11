@@ -1,0 +1,7 @@
+#!/bin/bash
+for i in rabbitmq-server apache2 cinder-api cinder-scheduler cinder-volume glance-api glance-registry neutron-dhcp-agent neutron-l3-agent neutron-plugin-openvswitch-agent neutron-server nova-compute nova-api nova-cert nova-conductor nova-consoleauth nova-novncproxy nova-scheduler nova-spicehtml5proxy nova-xenvncproxy openvswitch-switch
+do service $i stop
+done
+for i in rabbitmq-server apache2 cinder-api cinder-scheduler cinder-volume glance-api glance-registry neutron-dhcp-agent neutron-l3-agent neutron-plugin-openvswitch-agent neutron-server nova-compute nova-api nova-cert nova-conductor nova-consoleauth nova-novncproxy nova-scheduler nova-spicehtml5proxy nova-xenvncproxy openvswitch-switch
+do service $i start
+done
